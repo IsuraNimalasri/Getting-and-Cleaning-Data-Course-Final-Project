@@ -8,9 +8,9 @@ Y_test <- read.table("test/y_test.txt", quote="\"", comment.char="")
 
 X_train <- read.table("train/X_train.txt", quote="\"", comment.char="")
 Y_train <- read.table("train/y_train.txt", quote="\"", comment.char="")
-
-#(1)
-
+#==============================================================================
+#(1) Merges the training and the test sets to create one data set.
+#==============================================================================
 # mearge X_test and X_tarin datafarms  make one data set ,Which is called "MobileDataSet"
 MobileDataSet <- merge(x = X_test, y = X_train,all =TRUE)
 
@@ -20,9 +20,9 @@ MobileLableSet <- as.data.frame(unlist(c(Y_test,Y_train)))
 colnames(MobileLableSet) <-"Y"
 
 
-
-#(2)
-
+#==============================================================================
+#(2)Extracts only the measurements on the mean and standard deviation for each measurement.
+#==============================================================================
 
 # get all mesasuremnts mean value .
 
@@ -31,9 +31,9 @@ Measurement_Means = apply(MobileDataSet, 2, mean)
 # get all mesasuremnts standard deviation value 
 
 Measurement_SD = apply(MobileDataSet, 2, sd)
-
-#(3)
-
+#==============================================================================
+#(3)Uses descriptive activity names to name the activities in the data set
+#==============================================================================
 # set Descriptive varibales names for "MobileDataSet"
 # step 1 get exsisting colomun names
 X_col  <- colnames(MobileDataSet)
@@ -60,7 +60,9 @@ activities$V2 <- gsub("std", "StandardDeviation", activities$V2)
 # correct typo
 activities$V2 <- gsub("BodyBody", "Body", activities$V2)
 colnames(MobileDataSet) <- activities$V2
-#(4)
+#==============================================================================
+#(4)Appropriately labels the data set with descriptive variable names.
+#==============================================================================
 
 #Get Lables names  
 
@@ -77,9 +79,11 @@ for (b in MobileLableSet) {
 # Set MobileLableSet 
 MobileLableSet$Y <- act_name
   
+#==============================================================================
+#(5)From the data set in step 4, creates a second, 
+#independent tidy data set with the average of each variable for each activity and each subject.
 
-#(5)
-
+#==============================================================================
 #get subject data 
 test_subject <-read.table("test/subject_test.txt", quote="\"", comment.char="")
 train_subject <- read.table("train/subject_train.txt",quote="\"", comment.char="")
