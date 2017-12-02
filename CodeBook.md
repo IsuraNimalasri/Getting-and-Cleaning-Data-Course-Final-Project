@@ -1,7 +1,7 @@
-#CodeBook
+# CodeBook
 Description about "tidy_Data.txt"
 
-##Identifies ode
+## Identifies ode
 subject - The ID of the test subject
 activity - The type of activity performed when the corresponding measurements were taken
 
@@ -13,9 +13,9 @@ activity - The type of activity performed when the corresponding measurements we
 6 LAYING
 
 
-##Measurement 
+## Measurement 
 
-###Time Domanin
+### Time Domanin
 "timeDomainBodyAccelerometerMeanX"                              
 "timeDomainBodyAccelerometerMeanY"                              
 "timeDomainBodyAccelerometerMeanZ"                              
